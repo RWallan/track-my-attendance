@@ -14,14 +14,14 @@ class UserCRUD:
     def __init__(self, model: T.Type[models.User]) -> None:
         self.model = model
 
-    def get_user_by_email(
+    def get_by_email(
         self, session: Session, *, email: str
     ) -> T.Optional[models.User]:
         return session.scalar(
             sa.select(self.model).where(self.model.email == email)
         )
 
-    def create_user(
+    def create(
         self, session: Session, *, user: users.CreateUser
     ) -> models.User:
         user.password = Hasher.get_password_hash(user.password)

@@ -14,7 +14,7 @@ logger = logging.getLogger('uvicorn')
 )
 def create_user(session: deps.SessionDep, user: schemas.users.CreateUser):
     """Create a new user."""
-    user_db = crud.user.get_user_by_email(session, email=user.email)
+    user_db = crud.user.get_by_email(session, email=user.email)
 
     if user_db:
         logger.error(f'Email {user.email} already exists.')
@@ -23,6 +23,6 @@ def create_user(session: deps.SessionDep, user: schemas.users.CreateUser):
             status_code=HTTPStatus.BAD_REQUEST, detail='Email already exists.'
         )
 
-    created_user = crud.user.create_user(session, user=user)
+    created_user = crud.user.create(session, user=user)
 
     return created_user
