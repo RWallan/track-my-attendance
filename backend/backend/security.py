@@ -38,3 +38,9 @@ class JWT:
         )
 
         return encoded_jwt
+
+    @staticmethod
+    def decode(token: str) -> dict:
+        return jwt.decode(
+            token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
+        )

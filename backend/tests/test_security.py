@@ -28,3 +28,13 @@ def test_encode_jwt():
 
     assert token['test'] == data['test']
     assert token['exp']
+
+
+def test_decode_jwt():
+    data = {'test': 'test'}
+    token = JWT.encode(data)
+
+    token = JWT.decode(token)
+
+    assert token['test'] == data['test']
+    assert token['exp']
