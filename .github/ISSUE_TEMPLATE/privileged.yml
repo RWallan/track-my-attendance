@@ -1,5 +1,5 @@
 name: Privileged
-description: You are @RWallan or he asked you directly to create an issue here. If not, check the other options. 👇
+description: You are @RWallan or he asked you directly to create an issue here. If not, check the other options.
 body:
   - type: markdown
     attributes:
