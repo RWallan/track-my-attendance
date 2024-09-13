@@ -1,0 +1,73 @@
+name: Bug Report
+description: Create a report to help us improve
+title: "[BUG]: "
+labels: ["bug"]
+assignees:
+  - RWallan
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for help to improve the project!
+
+        Please follow these instructions, fill every question, and do every step.
+
+        I'm asking this to be able to understand and fix the bug quickly as possible.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: First check
+      description: Please confirm and check all the following options.
+      options:
+        - label: I added a very description title here.
+          required: true
+        - label: I tried to find a similar [issue](https://github.com/RWallan/track-my-attendance/issues)
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is the problem or error?
+      placeholder: I'm receiving a unexpected error when I try to login.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: To reproduce
+      description: Steps to reproduce the behavior, including any relevant code snippets.
+      placeholder: Opened the browser and tried to login.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected behavior
+      description: A clean and concise description of what you expected to happen.
+      placeholder: A successfull login.
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: What browser are you on?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Brave
+        - Safari
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: browser-details
+    attributes:
+      label: Browser Details
+      description: You can add more details about your browser here, in particular if you chose "Other".
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any additional context information or screenshots you think are useful.

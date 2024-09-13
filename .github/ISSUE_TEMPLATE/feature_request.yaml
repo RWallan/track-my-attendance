@@ -1,0 +1,57 @@
+name: Feature Request
+description: Suggest an idea for this project
+title: "[FEATURE]: "
+labels: ["feature"]
+assignees:
+  - RWallan
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for help to improve the project!
+
+        Please follow these instructions, fill every question, and do every step.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: First check
+      description: Please confirm and check all the following options.
+      options:
+        - label: I added a very description title here.
+          required: true
+        - label: I tried to find a similar [issue](https://github.com/RWallan/track-my-attendance/issues)
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what is your idea to the project
+    validations:
+      required: true
+  - type: textarea
+    id: help
+    attributes:
+      label: Why it will help?
+      description: Describe why do you think that your idea will help the project and other users.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Is your feature request related to a problem?
+      description: Describe what is the problem that you encounter and how this feature will help.
+  - type: dropdown
+    id: pr
+    attributes:
+      label: Pull Request
+      description: You're considering to create a Pull Request implementing this feature? Doesn't have any problem if you don't are considering it.
+      options:
+        - Yes
+        - No
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any additional context information or screenshots you think are useful.
