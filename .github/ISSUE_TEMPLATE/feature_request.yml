@@ -46,8 +46,8 @@ body:
       label: Pull Request
       description: Are you considering creating a Pull Request to implement this feature? It’s okay if you are not considering it at this moment.
       options:
-        - Yes
-        - No
+        - "Yes"
+        - "No"
     validations:
       required: true
   - type: textarea
