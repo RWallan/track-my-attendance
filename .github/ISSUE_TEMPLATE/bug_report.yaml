@@ -14,7 +14,7 @@ body:
 
         I'm asking this to be able to understand and fix the bug quickly as possible.
   - type: checkboxes
-    id: checks
+    id: bug-checks
     attributes:
       label: First check
       description: Please confirm and check all the following options.
@@ -24,7 +24,7 @@ body:
         - label: I tried to find a similar [issue](https://github.com/RWallan/track-my-attendance/issues)
           required: true
   - type: textarea
-    id: description
+    id: bug-description
     attributes:
       label: Description
       description: What is the problem or error?
@@ -32,7 +32,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: steps
+    id: bug-steps
     attributes:
       label: To reproduce
       description: Steps to reproduce the behavior, including any relevant code snippets.
@@ -40,7 +40,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: behavior
+    id: bug-behavior
     attributes:
       label: Expected behavior
       description: A clean and concise description of what you expected to happen.
@@ -48,7 +48,7 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: browser
+    id: bug-browser
     attributes:
       label: Browser
       description: What browser are you on?
@@ -62,12 +62,12 @@ body:
     validations:
       required: true
   - type: textarea
-    id: browser-details
+    id: bug-browser-details
     attributes:
       label: Browser Details
       description: You can add more details about your browser here, in particular if you chose "Other".
   - type: textarea
-    id: context
+    id: bug-context
     attributes:
       label: Additional Context
       description: Add any additional context information or screenshots you think are useful.
