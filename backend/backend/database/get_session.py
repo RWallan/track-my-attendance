@@ -6,7 +6,7 @@ from backend.settings import settings
 engine = create_engine(settings.DATABASE_URL)
 
 
-def get_session():
+def get_session():  # pragma: nocover
     """Expose the Database Session."""
     with Session(engine) as session:
         yield session
