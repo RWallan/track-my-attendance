@@ -17,8 +17,6 @@ def create_user(session: deps.SessionDep, user: schemas.users.CreateUser):
     user_db = crud.user.get_by_email(session, email=user.email)
 
     if user_db:
-        logger.error(f'Email {user.email} already exists.')
-        print(f'Email {user.email} already exists.')
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST, detail='Email already exists.'
         )
