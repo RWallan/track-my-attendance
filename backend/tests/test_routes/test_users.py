@@ -1,7 +1,5 @@
 from http import HTTPStatus
 
-from backend.security import JWT
-
 
 def test_create_user(client):
     response = client.post(
