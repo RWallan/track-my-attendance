@@ -62,3 +62,14 @@ def test_create_user_with_large_pwd(client):
     )
 
     assert response.status_code == HTTPStatus.UNPROCESSABLE_ENTITY
+
+
+def test_update_user(client, token):
+    response = client.put(
+        '/users/me',
+        json={'name': 'Updated User', 'password': 'newpassword'},
+        headers={'Authorization': f'Bearer {token}'},
+    )
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json()['name'] == 'Updated User'

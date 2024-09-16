@@ -33,5 +33,23 @@ class UserCRUD:
 
         return db_user
 
+    @staticmethod
+    def update(session, *, user: models.User, user_in: users.UpdateUser):
+        user_data = user_in.model_dump(exclude_unset=True)
+
+        if 'password' in user_data:
+            user_data['password'] = Hasher.get_password_hash(
+                user_data['password']
+            )
+
+        for field in user_data:
+            setattr(user, field, user_data[field])
+
+        session.add(user)
+        session.commit()
+        session.refresh(user)
+
+        return user
+
 
 user = UserCRUD(models.User)

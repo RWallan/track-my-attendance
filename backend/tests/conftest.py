@@ -51,3 +51,13 @@ def user(session):
     user.plain_pwd = pwd
 
     return user
+
+
+@pytest.fixture
+def token(client, user):
+    response = client.post(
+        '/auth/token',
+        data={'username': user.email, 'password': user.plain_pwd},
+    )
+
+    return response.json()['access_token']

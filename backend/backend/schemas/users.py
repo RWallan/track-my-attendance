@@ -20,6 +20,12 @@ class CreateUser(BaseUser):
     password: str = Field(min_length=8, max_length=40)
 
 
+class UpdateUser(BaseUser):
+    password: T.Optional[str] = Field(
+        default=None, min_length=8, max_length=40
+    )
+
+
 class UserInDbBase(BaseUser):
     model_config = ConfigDict(from_attributes=True)
 

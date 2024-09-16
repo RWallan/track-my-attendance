@@ -24,3 +24,17 @@ def create_user(session: deps.SessionDep, user: schemas.users.CreateUser):
     created_user = crud.user.create(session, user=user)
 
     return created_user
+
+
+@router.put(
+    '/me', response_model=schemas.users.User
+)
+def update_user(
+    session: deps.SessionDep,
+    user: schemas.users.UpdateUser,
+    current_user: deps.CurrentUser,
+):
+    """Update user informations."""
+    updated_user = crud.user.update(session, user=current_user, user_in=user)
+
+    return updated_user
