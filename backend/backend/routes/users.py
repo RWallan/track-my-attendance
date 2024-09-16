@@ -26,9 +26,7 @@ def create_user(session: deps.SessionDep, user: schemas.users.CreateUser):
     return created_user
 
 
-@router.put(
-    '/me', response_model=schemas.users.User
-)
+@router.put('/me', response_model=schemas.users.User)
 def update_user(
     session: deps.SessionDep,
     user: schemas.users.UpdateUser,
