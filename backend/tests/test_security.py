@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 import jwt
 
 from backend.security import JWT, Hasher
