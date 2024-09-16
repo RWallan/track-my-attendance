@@ -18,7 +18,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = "^0.114.1"
+fastapi = {extras = ["standard"], version = "^0.114.2"}
 sqlalchemy = "^2.0.34"
 alembic = "^1.13.2"
 pydantic-settings = "^2.5.2"
