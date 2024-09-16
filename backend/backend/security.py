@@ -1,12 +1,23 @@
 from datetime import datetime, timedelta
+from http import HTTPStatus
+from typing import Annotated
 
 import jwt
+import sqlalchemy as sa
+from fastapi import HTTPException
+from fastapi.params import Depends
+from fastapi.security import OAuth2PasswordBearer
 from pwdlib import PasswordHash
+from sqlalchemy.orm import Session
 from zoneinfo import ZoneInfo
 
+from backend import schemas
+from backend.database import models
+from backend.database.get_session import get_session
 from backend.settings import settings
 
 pwd_context = PasswordHash.recommended()
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/auth/token')
 
 
 class Hasher:
@@ -44,3 +55,34 @@ class JWT:
         return jwt.decode(
             token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
         )
+
+
+def get_current_user(
+    session: Annotated[Session, Depends(get_session)],
+    token: Annotated[str, Depends(oauth2_scheme)],
+):
+    credentials_exception = HTTPException(
+        status_code=HTTPStatus.UNAUTHORIZED,
+        detail='Could not validate credentials',
+        headers={'WWW-Authenticate': 'Bearer'},
+    )
+
+    try:
+        payload = JWT.decode(token)
+        id = payload.get('sub')
+
+        if not id:
+            raise credentials_exception
+
+        token_data = schemas.token.TokenData(id=id)
+    except jwt.DecodeError:
+        raise credentials_exception
+
+    user = session.scalar(
+        sa.select(models.User).where(models.User.id == token_data.id)
+    )
+
+    if not user:
+        raise credentials_exception
+
+    return user
