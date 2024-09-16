@@ -14,7 +14,7 @@ class BaseUser(BaseModel):
 
 class CreateUser(BaseUser):
     name: str
-    email: str
+    email: EmailStr
     course: str
     period: str
     password: str = Field(min_length=8, max_length=40)
