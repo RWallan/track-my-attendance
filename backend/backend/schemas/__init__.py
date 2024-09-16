@@ -1,3 +1,3 @@
-from . import users
+from . import token, users
 
-__all__ = ['users']
+__all__ = ['users', 'token']

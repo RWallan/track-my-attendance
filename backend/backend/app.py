@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from backend.routes import users
+from backend.routes import auth, users
 
 app = FastAPI()
 
@@ -11,3 +11,4 @@ def health_check():
 
 
 app.include_router(users.router, tags=['users'])
+app.include_router(auth.router, tags=['auth'])

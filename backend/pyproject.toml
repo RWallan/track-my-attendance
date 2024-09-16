@@ -25,6 +25,7 @@ pydantic-settings = "^2.5.2"
 pydantic = {extras = ["email"], version = "^2.9.1"}
 pwdlib = {extras = ["argon2"], version = "^0.2.1"}
 pyjwt = "^2.9.0"
+python-multipart = "^0.0.9"
 
 
 [tool.poetry.group.dev.dependencies]
