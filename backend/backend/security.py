@@ -77,6 +77,8 @@ def get_current_user(
         token_data = schemas.token.TokenData(id=id)
     except jwt.DecodeError:
         raise credentials_exception
+    except jwt.ExpiredSignatureError:
+        raise credentials_exception
 
     user = session.scalar(
         sa.select(models.User).where(models.User.id == token_data.id)

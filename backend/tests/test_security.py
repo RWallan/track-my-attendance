@@ -1,6 +1,7 @@
 from http import HTTPStatus
 
 import jwt
+from freezegun import freeze_time
 
 from backend.security import JWT, Hasher
 from backend.settings import settings
@@ -78,3 +79,25 @@ def test_update_user_with_wrong_token(client):
 
     assert response.status_code == HTTPStatus.UNAUTHORIZED
     assert response.json() == {'detail': 'Could not validate credentials'}
+
+
+def test_expired_token(client, user):
+    with freeze_time('2023-07-14 12:00:00'):
+        response = client.post(
+            '/auth/token',
+            data={'username': user.email, 'password': user.plain_pwd},
+        )
+        assert response.status_code == HTTPStatus.OK
+        token = response.json()['access_token']
+
+    with freeze_time('2023-07-14 12:31:00'):
+        response = client.put(
+            '/users/me',
+            headers={'Authorization': f'Bearer {token}'},
+            json={
+                'email': 'wrong@wrong.com',
+                'password': 'wrongwrong',
+            },
+        )
+        assert response.status_code == HTTPStatus.UNAUTHORIZED
+        assert response.json() == {'detail': 'Could not validate credentials'}
