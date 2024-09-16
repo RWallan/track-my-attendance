@@ -18,14 +18,12 @@ def access_token(form_data: deps.OAuth2Form, session: deps.SessionDep):
 
     if not user:
         raise HTTPException(
-            status_code=HTTPStatus.BAD_REQUEST,
-            detail='Incorrect email.'
+            status_code=HTTPStatus.BAD_REQUEST, detail='Incorrect email.'
         )
 
     if not security.Hasher.verify_password(form_data.password, user.password):
         raise HTTPException(
-            status_code=HTTPStatus.BAD_REQUEST,
-            detail='Incorrect password.'
+            status_code=HTTPStatus.BAD_REQUEST, detail='Incorrect password.'
         )
 
     access_token = security.JWT.encode({'sub': user.id})
