@@ -1,3 +1,3 @@
-from . import token, users
+from . import msg, token, users
 
-__all__ = ['users', 'token']
+__all__ = ['msg', 'users', 'token']

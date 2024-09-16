@@ -53,5 +53,10 @@ class UserCRUD:
 
         return user
 
+    @staticmethod
+    def delete(session: Session, *, user: models.User):
+        session.delete(user)
+        session.commit()
+
 
 user = UserCRUD(models.User)

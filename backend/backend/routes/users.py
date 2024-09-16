@@ -36,3 +36,11 @@ def update_user(
     updated_user = crud.user.update(session, user=current_user, user_in=user)
 
     return updated_user
+
+
+@router.delete('/me', response_model=schemas.msg.Message)
+def delete_user(session: deps.SessionDep, current_user: deps.CurrentUser):
+    """Delete user."""
+    crud.user.delete(session, user=current_user)
+
+    return schemas.msg.Message(message='User deleted')
