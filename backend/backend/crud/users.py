@@ -34,7 +34,9 @@ class UserCRUD:
         return db_user
 
     @staticmethod
-    def update(session, *, user: models.User, user_in: users.UpdateUser):
+    def update(
+        session, *, user: models.User, user_in: users.UpdateUser
+    ) -> models.User:
         user_data = user_in.model_dump(exclude_unset=True)
 
         if 'password' in user_data:
