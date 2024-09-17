@@ -3,8 +3,8 @@ from http import HTTPStatus
 import jwt
 from freezegun import freeze_time
 
+from backend.helpers.settings import settings
 from backend.security import JWT, Hasher
-from backend.settings import settings
 
 
 def test_verify_password_with_correct_password():

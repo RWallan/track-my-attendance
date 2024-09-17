@@ -3,8 +3,9 @@ from http import HTTPStatus
 import sqlalchemy as sa
 from fastapi import APIRouter, HTTPException
 
-from backend import deps, schemas, security
+from backend import schemas, security
 from backend.database import models
+from backend.helpers import deps
 
 router = APIRouter(prefix='/auth')
 

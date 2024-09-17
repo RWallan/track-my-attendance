@@ -3,7 +3,8 @@ from http import HTTPStatus
 
 from fastapi import APIRouter, HTTPException
 
-from backend import crud, deps, schemas
+from backend import crud, schemas
+from backend.helpers import deps
 
 router = APIRouter(prefix='/users')
 logger = logging.getLogger('uvicorn')

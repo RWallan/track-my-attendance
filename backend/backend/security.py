@@ -14,7 +14,7 @@ from zoneinfo import ZoneInfo
 from backend import schemas
 from backend.database import models
 from backend.database.get_session import get_session
-from backend.settings import settings
+from backend.helpers.settings import settings
 
 pwd_context = PasswordHash.recommended()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/auth/token')
