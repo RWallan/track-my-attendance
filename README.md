@@ -119,7 +119,7 @@ This project is licensed under the terms of the **MIT License**. See the [LICENS
 
 For further information, you can reach out via:
 
-- **Email:** [support@trackmyattendance.com](mailto:support@trackmyattendance.com)
+- **Email:** [3am.richardwallan@gmail.com](mailto:3am.richardwallan@gmail.com)
 - **GitHub Issues:** [Track My Attendance Issues](https://github.com/RWallan/track-my-attendance/issues)
 - **GitHub Discussions:** [Join the Conversation](https://github.com/RWallan/track-my-attendance/discussions)
 
@@ -131,4 +131,4 @@ This project is in active development. Features and functionalities are subject 
 
 ---
 
-*This README was last updated on September 18, 2024.*
+*This README was last updated on September 20, 2024.*
