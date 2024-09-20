@@ -55,46 +55,13 @@
 
 ## Usage
 
-Once the application is running, you can:
+With the application you can:
 
 - **Create an Account:** Sign up using your email and password.
 - **Log In:** Access your dashboard by logging in.
 - **Add Courses:** Input your courses and organize them by type and schedule.
 - **Track Attendance:** Mark your attendance for each lesson directly from your dashboard.
 - **View Reports:** Monitor your attendance trends over time and ensure you meet course requirements.
-
----
-
-## Example Usage
-
-### Register a New User
-
-- **Endpoint:** `POST /auth/register`
-- **Request Body:**
-  ```json
-  {
-    "name": "John Doe",
-    "email": "john.doe@example.com",
-    "password": "SecurePass123",
-    "role": "student"
-  }
-  ```
-
-### Record Attendance
-
-- **Endpoint:** `POST /attendance`
-- **Request Body:**
-  ```json
-  {
-    "student_id": 123,
-    "course_agenda_id": 456,
-    "attended": true
-  }
-  ```
-
----
-
-Feel free to adjust or expand upon this list as your project requirements evolve.
 
 ---
 
