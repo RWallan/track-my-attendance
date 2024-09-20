@@ -15,8 +15,7 @@
 ## Table of Contents
 
 - [Technology Stack](#technology-stack)
-- [Database Schema Overview](#database-schema-overview)
-- [Installation](#installation)
+- [Architecture](#architecture)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -53,6 +52,10 @@
 
 ---
 
+## Architecure
+
+The project architecture is explained with all details [here](docs/Architecture.md).
+
 ## Usage
 
 With the application you can:
@@ -64,6 +67,10 @@ With the application you can:
 - **View Reports:** Monitor your attendance trends over time and ensure you meet course requirements.
 
 ---
+
+## Roadmap
+
+You can see the entire roadmap [here](docs/Roadmap.md).
 
 ## Contributing
 
