@@ -7,7 +7,7 @@
 - **Simplicity First:** A streamlined user experience focused on easy attendance tracking.
 - **User-Friendly:** Intuitive interface without unnecessary complexity—no overwhelming menus or buttons.
 - **Minimalist Approach:** Offers only the essentials to keep your attendance organized and accessible.
-- **Detailed Analytics:** Monitor your attendance trends and predict future attendance patterns.
+- **Detailed Analytics:** Monitor your attendance trends.
 - **Secure and Reliable:** Built with security best practices to protect user data.
 
 ---
