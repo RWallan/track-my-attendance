@@ -9,7 +9,9 @@ readme = "README.md"
 requires-python = ">=3.13, <4.0"
 dependencies = [
     "fastapi[standard] (>=0.115.8,<0.116.0)",
-    "sqlalchemy (>=2.0.38,<3.0.0)"
+    "sqlalchemy (>=2.0.38,<3.0.0)",
+    "pydantic-settings (>=2.7.1,<3.0.0)",
+    "alembic (>=1.14.1,<2.0.0)"
 ]
 
 
@@ -26,6 +28,7 @@ httpx = "^0.28.1"
 
 [tool.ruff]
 line-length = 79
+extend-exclude = ["migrations"]
 
 [tool.ruff.format]
 preview = true
@@ -44,3 +47,4 @@ format = "ruff check . --fix && ruff format ."
 pre_test = "task lint"
 test = "pytest -s -x -vv --cov=track_my_attendance"
 post_test = "coverage html"
+run = "fastapi dev track_my_attendance/app.py"
