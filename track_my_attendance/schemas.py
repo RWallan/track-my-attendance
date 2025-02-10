@@ -29,6 +29,7 @@ class BaseCourse(BaseModel):
     end_date: Optional[date] = None
     schedule: Optional[list[Schedule]] = None
     class_hours: Optional[int] = None
+    period: Optional[int] = None
 
 
 class CourseSchema(BaseCourse):
@@ -37,6 +38,7 @@ class CourseSchema(BaseCourse):
     end_date: date  # type: ignore
     schedule: list[Schedule]  # type: ignore
     class_hours: int  # type: ignore
+    period: int  # type: ignore
 
 
 class CoursePublic(BaseCourse):

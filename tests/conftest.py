@@ -67,6 +67,7 @@ def course(session):
         end_date='2025-01-02',
         class_hours=60,
         schedule='[{"day": "Monday", "start": "18:00:00", "end": "19:00:00"}]',
+        period=1,
     )
 
     session.add(course)

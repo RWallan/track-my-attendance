@@ -31,6 +31,7 @@ def create_course(
         end_date=course.end_date.strftime('%Y-%m-%d'),
         class_hours=course.class_hours,
         schedule=str(course.model_dump()['schedule']),
+        period=course.period,
     )
     session.add(db_course)
     session.commit()

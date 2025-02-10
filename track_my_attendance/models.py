@@ -16,6 +16,7 @@ class Course:
     end_date: Mapped[str]
     schedule: Mapped[str]
     class_hours: Mapped[int]
+    period: Mapped[int]
     created_at: Mapped[datetime] = mapped_column(
         init=False, server_default=func.now()
     )

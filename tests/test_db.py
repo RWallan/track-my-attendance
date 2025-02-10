@@ -16,6 +16,7 @@ def test_create_course(session, mock_db_time):
                 {'day': 'Monday', 'start': '18:00:00', 'end': '19:00:00'}
             ]),
             class_hours=60,
+            period=1,
         )
 
         session.add(new_course)
@@ -32,4 +33,5 @@ def test_create_course(session, mock_db_time):
             'class_hours': 60,
             'created_at': time,
             'updated_at': time,
+            'period': 1,
         }

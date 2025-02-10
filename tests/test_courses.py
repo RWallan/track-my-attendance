@@ -14,6 +14,7 @@ def test_create_course(client):
             'schedule': [
                 {'day': 'Monday', 'start': '18:00:00', 'end': '19:00:00'}
             ],
+            'period': 1,
         },
     )
 
