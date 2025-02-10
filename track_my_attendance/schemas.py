@@ -8,11 +8,11 @@ from pydantic import BaseModel, ConfigDict, Field
 class Day(Enum):
     monday = 'Monday'
     tuesday = 'Tuesday'
-    Wednesday = 'Wednesday'
-    Thursday = 'Thursday'
-    Friday = 'Friday'
-    Saturday = 'Saturday'
-    Sunday = 'Sunday'
+    wednesday = 'Wednesday'
+    thursday = 'Thursday'
+    friday = 'Friday'
+    saturday = 'Saturday'
+    sunday = 'Sunday'
 
 
 class Schedule(BaseModel):
