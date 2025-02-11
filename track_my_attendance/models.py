@@ -1,6 +1,6 @@
 from datetime import date, datetime
 
-from sqlalchemy import JSON, func
+from sqlalchemy import func
 from sqlalchemy.orm import Mapped, mapped_column, registry
 
 table_registry = registry()
