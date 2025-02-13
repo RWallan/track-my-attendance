@@ -61,3 +61,40 @@ class CourseList(BaseModel):
 
 class Message(BaseModel):
     message: str
+
+
+class AbsenceSchema(BaseModel):
+    date: datetime
+    present: bool
+
+
+class AbsencePublic(BaseModel):
+    date: datetime
+    present: bool
+    course_id: int
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class AbsenceUpdate(BaseModel):
+    date: Optional[datetime] = None
+    present: Optional[bool] = None
+    course_id: Optional[int] = None
+
+
+class AbsenceList(BaseModel):
+    absences: list[AbsencePublic]
+
+
+class FilterPage(BaseModel):
+    offset: int = 0
+    limit: int = 100
+
+
+class FilterAbsence(FilterPage):
+    course_id: Optional[int] = None
+    start_date: Optional[datetime] = None
+    end_date: Optional[datetime] = None
+    present: Optional[bool] = None

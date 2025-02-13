@@ -73,8 +73,8 @@ def update_course(
     if 'end_date' in data:
         data['end_date'] = data['end_date'].strftime('%Y-%m-%d')
 
-    for field in data:
-        setattr(course_db, field, data[field])
+    for key, value in data.items():
+        setattr(course_db, key, value)
 
     session.commit()
     session.refresh(course_db)

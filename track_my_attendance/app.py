@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from track_my_attendance.absences import router as absences_router
 from track_my_attendance.courses import router as courses_router
 
 app = FastAPI()
@@ -11,3 +12,4 @@ def health_check():
 
 
 app.include_router(courses_router)
+app.include_router(absences_router)

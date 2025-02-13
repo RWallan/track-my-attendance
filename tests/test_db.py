@@ -1,9 +1,10 @@
 import json
 from dataclasses import asdict
+from datetime import datetime
 
 from sqlalchemy import select
 
-from track_my_attendance.models import Course
+from track_my_attendance.models import Absence, Course
 
 
 def test_create_course(session, mock_db_time):
@@ -34,4 +35,19 @@ def test_create_course(session, mock_db_time):
             'created_at': time,
             'updated_at': time,
             'period': 1,
+            'absences': [],
         }
+
+
+def test_create_absence(session, course):
+    new_absence = Absence(
+        date=datetime.now(), present=True, course_id=course.id
+    )
+
+    session.add(new_absence)
+    session.commit()
+    session.refresh(new_absence)
+
+    course = session.scalar(select(Course).where(Course.id == course.id))
+
+    assert new_absence in course.absences
